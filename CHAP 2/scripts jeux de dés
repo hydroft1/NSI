@@ -1,0 +1,44 @@
+from random import randint  
+from tracemalloc import start
+'''
+lancer = input("\n Voulez vous jouez aux dé ? [oui/non] > ")   #####################################################################
+if (lancer == "oui"):                                          #                                                                   #
+    print ("Les dés vont se lancer")                           #                                                                   #
+    start                                                      #   Propose aux joueur si ils veulent lancer le jeux de dés avec    #
+else:                                                          #                          oui ou non                               #
+    print ("Le jeux ne vas pas commencer")                     #                                                                   #
+    exit(0)                                                    #####################################################################)
+'''
+
+
+dé_joueur1=randint(1,6)
+dé_joueur2=randint(1,6)
+points_joueur1=0
+points_joueur2=0
+print ("numero du joueur n 1 >",dé_joueur1)
+print ("numero du joueur n 2 >",dé_joueur2)
+
+while points_joueur1!=5 and points_joueur2!=5:
+    if (dé_joueur1>dé_joueur2):
+        print ("c'est le joueur 1 qui gagne cette manche")
+        points_joueur1=points_joueur1+1
+    elif (dé_joueur1<dé_joueur2):
+        print ("c'est le joueur 2 qui gagne cette manche") 
+        points_joueur2=points_joueur2+1
+    else:
+        print ("ex aequo")
+    print ("numero du joueur 1 >",dé_joueur1)
+    print ("numero du joueur 2 >",dé_joueur2)
+    dé_joueur1=randint(1,6)
+    dé_joueur2=randint(1,6)
+'''
+    lancer = input("\n Voulez vous relancer les dés ? [oui/non] > ")    #########################################################
+    if (lancer == "non"):                                               #                                                       #
+        print("le jeux c'est arreter")                                  # Propose aux joueurs si ils veulent continuer de jouer #
+        exit(0)                                                         #########################################################
+'''
+    
+if (points_joueur1==5):
+    print ("le joueur 1 a gagné")
+else:
+    print ("le joueur 2 a gagné")
