@@ -8,12 +8,31 @@ Cette fonction va retourner la liste de notes L_notes_loc.
 A écrire dans le programme principal : L_notes=recup_notes()
 """
 
+def recup_notes(L_notes_loc):
+    note_loc=0
+    while (note_loc>=0):
+        note_loc=int(input("Entrez une note"))
+        if (note_loc>=0) :
+            L_notes_loc.append(note_loc)
+        else:
+            return L_notes_loc
+L_notes=[]
+L_notes=recup_notes(L_notes)
+print(L_notes)
 
 """ Code 2
 Ecrivez la fonction moyenne_notes(L_notes_loc) qui calcule la moyenne des notes de la liste L_notes_loc.
 Cette fonction va retourner la moyenne.
 A écrire dans le programme principal : moy=moyenne_notes(L_notes)
 """
+
+def moyenne_notes(L_notes_loc):
+    somme_loc=0
+    for i in range (0,len(L_notes_loc)):
+        somme_loc=somme_loc+L_notes_loc[i]/len(L_notes_loc)
+    return somme_loc
+moy=moyenne_notes(L_notes)
+print(moy)
 
 
 """ Code 3
@@ -23,3 +42,17 @@ Le programme principal affichera "la note min est : xx, et la note max est : yy"
 Vous n'avez pas le droit d'utiliser les fonctions Python min(L_notes_loc) et max(L_notes_loc).
 A écrire dans le programme principal : extremes=trouve_min_max(L_notes)
 """
+
+def trouve_min_max(L_notes_loc):
+    max_loc=L_notes_loc[0]
+    for i in range(len(L_notes_loc)):
+        if (L_notes_loc[i]>max_loc):
+            max_loc=L_notes_loc[i]
+    min_loc=L_notes_loc[0]
+    for i in range(len(L_notes_loc)):
+        if (L_notes_loc[i]<min_loc):
+            min_loc=L_notes_loc[i]
+    return (min_loc,max_loc)
+extremes=trouve_min_max(L_notes)
+print("la note min est : ",extremes[0]," et la note max est : ",extremes[1])
+
