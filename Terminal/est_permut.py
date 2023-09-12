@@ -9,11 +9,7 @@ def est_permut(tab):
         bool: True si la liste est une permutation, False sinon.
         
     Exemples :
-    print(est_permut([1, 2, 3, 4]))  
-    print(est_permut([4, 3, 2, 1]))  
-    print(est_permut([1, 2, 2, 4]))  
-    print(est_permut([1, 2, 3, 5]))  
-    print(est_permut([]))            
+           
     """
     n = len(tab)
     

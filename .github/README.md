@@ -8,4 +8,7 @@ This repository includes the various codes produced during the NSI terminal clas
 
 | Name | Difficulty |
 | ---  | ---------- |
-| est_permut.py | `Easy`| 
+| est_permut.py | `Easy`|
+| pillow.py | `Medium`|
+| docstring_fonction.py | `Easy` |
+
