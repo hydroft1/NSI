@@ -36,11 +36,16 @@ class Fraction:
     def __str__(self):
         return str(self.numerateur) + '/' + str(self.denominateur)
     
-f = Fraction(4, 4)
-g = Fraction(-5, 6)
-h = Fraction(8, 7)
+    def __repr__(self):
+        return "Fraction(" + str(self.numerateur) \
+            + ", " + str(self.denominateur) + ")"
+    
+if __name__ == "__main__": 
+    f = Fraction(4, 4)
+    g = Fraction(-5, 6)
+    h = Fraction(8, 7)
 
-print(f + g + h)
+    print(f + g + h)
 
 
 """
