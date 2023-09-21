@@ -12,3 +12,5 @@ This repository includes the various codes produced during the NSI terminal clas
 | pillow.py | `Medium`|
 | docstring_fonction.py | `Easy` |
 | class_fonction.py | `Medium` |
+| distance.py | `Easy` |
+| test_distance.py | `Easy` |
