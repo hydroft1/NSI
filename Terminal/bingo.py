@@ -1,4 +1,27 @@
-class Grille:
+class Bingo : 
+    def __init__(self, tab):
+        self.matrices = []
+        for i in range(5):
+            ligne = []
+            for j in range(5):
+                ligne.append([tab[5*i + j], 0])
+            self.matrices.append(ligne)
+    
+    def __str__(self):
+        stg = ""
+        for i in range(5):
+            for j in range(5):
+                stg += str(self.matrices[i][j][0]) + " "
+            stg += "\n"
+        return stg[:-1]
+    
+
+T = [i**2 for i in range(25)]
+b = Bingo(T)
+print(b)
+        
+
+"""class Grille:
     def __init__(self, tableau):
         self.matrice = [tableau[i:i+5] for i in range(0, 25, 5)]
         self.marques = [[False] * 5 for _ in range(5)]
@@ -29,3 +52,4 @@ class Grille:
             return True
 
         return False
+"""
