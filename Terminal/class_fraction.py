@@ -2,12 +2,14 @@ class Fraction:
     def __init__(self, n, d):
         self.numerateur = n
         self.denominateur = d
+        self._simplification()
         
     def _somme(self, frc, sgn):
          # sgn = 1 -> addition / -1 -> soustraction
         self.numerateur = self.numerateur * frc.denominateur \
                             + sgn *frc.numerateur * self.denominateur
         self.denominateur = frc.denominateur * self.denominateur
+        self._simplification()
     
     def addition(self, frc):
         self._somme(frc, 1)
@@ -15,20 +17,25 @@ class Fraction:
     def soustraction(self, frc):
         self._somme(frc, -1)
         
-    def valeur_decimale(self):
+    def nb_virgule(self):
         return self.numerateur / self.denominateur
     
+    def _simplification(self):
+        div_com = Fraction.pgcd(self.numerateur, self.denominateur)
+        self.numerateur = self.numerateur // div_com
+        self.denominateur = self.denominateur // div_com
+        
     def __add__(self, frc):
         n= self.numerateur * frc.denominateur \
             + frc.numerateur * self.denominateur
         d = frc.denominateur * self.denominateur
         return Fraction(n, d)
         
-    def mystere(self, a, b):
+    def pgcd(self, a, b):
         if a < b:
             a, b = b, a
         
-        while b > 0:
+        while b != 0:
             a, b = b, a % b
         
         return a
@@ -43,9 +50,8 @@ class Fraction:
 if __name__ == "__main__": 
     f = Fraction(4, 4)
     g = Fraction(-5, 6)
-    h = Fraction(8, 7)
 
-    print(f + g + h)
+    print(f + g)
 
 
 """
