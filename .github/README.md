@@ -14,3 +14,5 @@ This repository includes the various codes produced during the NSI terminal clas
 | class_fonction.py | `Medium` |
 | distance.py | `Easy` |
 | test_distance.py | `Easy` |
+| Bingo | `Easy` |
+| exo_recursivite | `Easy` |
