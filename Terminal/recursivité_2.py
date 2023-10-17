@@ -1,4 +1,4 @@
-import Terminal.transgeo as tg
+import transgeo as tg
 from PIL import Image, ImageDraw
 
 def vk(profondeur, A, B):
