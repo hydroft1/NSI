@@ -19,3 +19,4 @@ This repository includes the various codes produced during the NSI terminal clas
 | recursivité2.py | `Medium` |
 | transgeo.py | `Modules` |
 | eoi.py | `Medium` |
+| test_Tkinter.py | `Medium` |
