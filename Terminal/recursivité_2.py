@@ -1,4 +1,4 @@
-import transgeo as tg
+"""import transgeo as tg
 from PIL import Image, ImageDraw
 
 def sierpinski_rec(profondeur, A, B):
@@ -24,5 +24,21 @@ CTX = ImageDraw.Draw(img)
 #
 sierpinski_rec(13, (0, 0), (W - 1, 0))
 img.save("sierpinski.png")
-img.show()
+img.show()"""
 
+# exercice 1
+
+def est_palin_mot(mot):
+    if  len(mot) <= 1: return True
+    #
+    if mot[0] == mot[len(mot)-1]: return est_palin_mot(mot[1:len(mot)-1])
+    else:
+        return False
+    
+    
+    
+    
+    
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

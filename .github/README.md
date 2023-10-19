@@ -15,4 +15,7 @@ This repository includes the various codes produced during the NSI terminal clas
 | distance.py | `Easy` |
 | test_distance.py | `Easy` |
 | Bingo | `Easy` |
-| exo_recursivite | `Easy` |
+| exercice_recursivite1.py | `Easy` |
+| recursivité2.py | `Medium` |
+| transgeo.py | `Modules` |
+| eoi.py | `Medium` |
