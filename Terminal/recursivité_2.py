@@ -1,4 +1,6 @@
-"""import transgeo as tg
+"""
+# EXERCICE 3
+import transgeo as tg
 from PIL import Image, ImageDraw
 
 def sierpinski_rec(profondeur, A, B):
@@ -35,10 +37,17 @@ def est_palin_mot(mot):
     else:
         return False
     
+def est_palin_mot_v2(mot):
+    n = len(mot)  
+    if n <= 1: return True
+    #
+    return mot[0] == mot[n - 1] and est_palin_mot_v2(mot[1:n - 1])
     
-    
-    
-    
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+def _est_palin_mot_v3(mot, indice):
+    n = len(mot)
+    if indice == n // 2: return True
+    return mot[0] == mot[n - 1 - indice] and _est_palin_mot_v3(mot, indice + 1)
+
+def est_palindrome(mot):
+    """ Fonction D'interface """
+    return _est_palin_mot_v3(mot, 0)
