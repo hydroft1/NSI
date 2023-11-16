@@ -21,3 +21,4 @@ This repository includes the various codes produced during the NSI terminal clas
 | eoi.py | `Medium` |
 | test_Tkinter.py | `Medium` |
 | exo_bac.py | `bac`|`
+| exercice_pile.py | `Medium` |
