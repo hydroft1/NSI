@@ -18,12 +18,16 @@ class Pile:
         return self.mapile[len(self.mapile) - 1]
         
     def affichage(self):
-        s = "["
-        for elt in self.mapile:
+        s = ">"
+        stock = Pile()
+        while not self.est_vide():
+            elt = self.depiler()
+            stock.empiler(elt)
             s += f" { elt } "
-        s += "<"
-        return s
-        
+        while not stock.est_vide():
+            elt = stock.depiler()
+            self.empiler(elt)
+        return s + "]"        
 
 class Rpn:
     """
@@ -33,6 +37,26 @@ class Rpn:
     
     La classe utilise une pile.
     """
+    tab_op = ["+", "-", "*", "/"] 
+    
     def __init__(self, s_rpn):
+        self.pile_calcul = Pile()
         self.moncalcul =s_rpn
+        self.tab_calc = self.moncalcul.split()
+        for elt in self.tab_calc:
+            if elt in self.tab_op:
+                ...
+            else:
+                ...
+    
+    def _additation(self):
+        pass
         
+    def _soustractions(self):
+        pass
+    
+    def _multiplication(self):
+        pass
+    
+    def _division(self):
+        pass
