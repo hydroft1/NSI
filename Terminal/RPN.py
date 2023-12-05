@@ -1,5 +1,5 @@
 import collections
-
+import math
 
 class Pile:
     def __init__(self):
@@ -37,26 +37,47 @@ class Rpn:
     
     La classe utilise une pile.
     """
-    tab_op = ["+", "-", "*", "/"] 
+    # tableau associatif :
+    # clé : caractère
+    # valeur : fonction
+    dico_operations_bin = {"+": lambda a, b: b + a,
+                       "-": lambda a, b: b - a,
+                       "*": lambda a, b: b * a,
+                       "/": lambda a, b: b / a,}
     
+    dico_unaires = {"sin": lambda a: math.sin(a),
+                    "cos": lambda a: math.cos(a),
+                    "tan": lambda a: math.tan(a),
+                    "ln": lambda a: math.log(a),
+                    "log": lambda a: math.log10(a),
+                    "neg" : lambda a: a*(-1),
+                    "sq": lambda a: a*a,
+                    }
+
     def __init__(self, s_rpn):
         self.pile_calcul = Pile()
         self.moncalcul =s_rpn
         self.tab_calc = self.moncalcul.split()
         for elt in self.tab_calc:
-            if elt in self.tab_op:
-                ...
+            if elt in Rpn.dico_operations_bin:
+                a = self.pile_calcul.depiler()
+                b = self.pile_calcul.depiler()
+                res = Rpn.dico_operations_bin[elt](a, b)
+                self.pile_calcul.empiler(res)
+            elif elt in Rpn.dico_unaires:
+                a = self.pile_calcul.depiler()
+                res = Rpn.dico_unaires[elt](a)
+                self.pile_calcul.empiler(res)
             else:
-                ...
+                self.pile_calcul.empiler(float(elt))
+                
+    def affichage(self):
+        return self.pile_calcul.affichage()
     
-    def _additation(self):
-        pass
-        
-    def _soustractions(self):
-        pass
+
+if __name__ == "__main__":
+    for calcul in ["10 ln",
+                   ]:
+        clcl = Rpn(calcul)
+        print(clcl.affichage())
     
-    def _multiplication(self):
-        pass
-    
-    def _division(self):
-        pass
