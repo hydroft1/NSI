@@ -23,3 +23,7 @@ This repository includes the various codes produced during the NSI terminal clas
 | exo_bac.py | `bac`|`
 | exercice_pile.py | `Medium` |
 | RPN.py | `Medium` |
+| rendu_monnaie.py | `Medium` |
+| tri_fusion.py | `Medium` |
+| pi_piquant.py | `Medium` |
+| pi_streap-teasing.py | `Medium` |
