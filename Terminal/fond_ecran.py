@@ -75,4 +75,4 @@ if __name__ == '__main__':
         yc = random.randrange(0, HEIGHT)
         rayon = random.randit(100, 500)
         Cercle((xc, yc), rayon).trace_cairo(ctx, (1, 1, 1))
-        
+    ctx.save("image.jpg")
