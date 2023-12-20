@@ -153,10 +153,10 @@ class Fond:
         """
         dist_gauche = position[0]
         dist_droite = self.largeur - 1 - position[0]
-        dist_bas = ... 
-        dist_haut = ...
+        dist_bas = self.hauteur - 1 - position[1]
+        dist_haut = position[1]
 
-        return ...
+        return min(dist_gauche, dist_droite, dist_bas, dist_haut)
 
     def rayon_max_cercles(self, position):
         """Détermine le rayon maximal du cercle possible à la
@@ -173,9 +173,9 @@ class Fond:
         # on ne s'interdit rien au départ !
         r_max = float('inf')
         for c in self.cercles:
-            nv_rayon_possible = Cercle.Cercle.distance(position, ...) - ...
-            r_max = min(...)
-        return ...
+            nv_rayon_possible = Cercle.distance(position, c.centre) - c.rayon
+            r_max = min(r_max, nv_rayon_possible)
+        return r_max
 
     def tracer_cercles(self, effectif, couleur):
         """Construit les cercles en nombre demandé. Les cercles ne
@@ -196,9 +196,9 @@ class Fond:
         """
         for _ in range(effectif):
 
-            position_valide = ...
+            position_valide = False
             while not position_valide:
-                x, y = ...
+                x, y = random.randrange(0, self.largeur), random.randrange(0, self.hauteur)
                 position_valide = not self.est_dans_un_cercle((x, y))
 
             position = (x, y)
