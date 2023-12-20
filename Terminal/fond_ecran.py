@@ -203,12 +203,12 @@ class Fond:
 
             position = (x, y)
             # on détermine le rayon :
-            rayon = rayon = min(...,
-                        self.rayon_max_cercles(...),
-                        self.rayon_max_bords(...))
-            nouveau_cercle = Cercle.Cercle(..., ...)
+            rayon = min(300,
+                        self.rayon_max_cercles(position),
+                        self.rayon_max_bords(position))
+            nouveau_cercle = Cercle.Cercle(position, rayon)
             # on trace maintenant le cercle :
-            ...
+            nouveau_cercle.trace_cairo(self.ctx, couleur)
             # on l'ajoute aux cercles déjà tracés
             self.cercles.append(nouveau_cercle)
 
