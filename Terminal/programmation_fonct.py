@@ -5,6 +5,9 @@ def car(tab):
     
 def cdr(tab):
     """ Renvoie un tableau des éléments d'un tableau non vide sauf le premier
+    
+    >>> cdr([1, 2, 3, 4])
+    [2, 3, 4]
     """
     # version sans slice
     t = []
@@ -20,3 +23,6 @@ def cons(elt, tab):
 
 
 
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
