@@ -27,3 +27,6 @@ This repository includes the various codes produced during the NSI terminal clas
 | tri_fusion.py | `Medium` |
 | pi_piquant.py | `Medium` |
 | pi_streap-teasing.py | `Medium` |
+| décorateurs.py | `Medium` |
+| sql1.sql | `Easy` |
+| programmation_fonct.py | `Medium` |
