@@ -42,8 +42,9 @@ def mon_map_rec(f, tab):
 def mon_filter(f, tab):
     """
     >>> mon_filter(lambda x : x>=0, [-3, -2, 0, 3, -5])
-    [0, 3]# exercice 1
+    [0, 3]
     """
+    return [elt for elt in tab if f(elt)]
 
 def cons1(elt, tab):
     """concatène l'élément elt au tableau tab en le plaçant en 1re
@@ -83,7 +84,19 @@ def longeur(tab):
     return 1 + longeur(cdr(tab))
 
 def somme(tab):
-    ...
+    """
+    >>> somme([1, 2, 3, 4])
+    10
+    """
+    res = 0
+    def _somme_res(res):
+        if tab == []: return res
+        res += car(tab)
+        tab = cdr(tab)
+        _somme_res()
+    #
+    _somme_res()
+    return res
 
 if __name__ == "__main__":
     import doctest
