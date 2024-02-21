@@ -23,4 +23,6 @@ def sacados(tab_p, tab_v, pmax):
     tab_optimise = [[0 for j in range(pmax + 1)]
                     for i in range(n)] 
     
-#
+    #1ere ligne
+    for poids in range(..., ...):
+        tab_optimise[0][poids] = ...
