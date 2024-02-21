@@ -90,6 +90,7 @@ def somme(tab):
     """
     res = 0
     def _somme_res(res):
+        nonlocal tab
         if tab == []: return res
         res += car(tab)
         tab = cdr(tab)
