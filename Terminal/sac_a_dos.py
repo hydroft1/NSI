@@ -15,6 +15,9 @@ def sacados(tab_p, tab_v, pmax):
     
     Renvoi :
     La valeur max du sac à dos
+    
+    
+    
     """
     
     # nombre d'objets
@@ -30,12 +33,20 @@ def sacados(tab_p, tab_v, pmax):
     # les zéros y sont déjà 
     # parcours de la matrice élément par élément
     # ligne par ligne
-    for i in range(1, n):
-        for poids in range(pmax + 1):
-            if tab_p[i] > poids :
-                ...
-            else:
-                ...
-                
-                
-            
+    for i_objet in range(1, n):
+        # l'objet est trop lourd pour le sac à dos
+        # on le prend pas
+        for i_poids in range(1, tab_p[i_objet]):
+            tab_optimise[i_objet][i_poids] = tab_optimise[i_objet - 1][i_poids]
+        for i_poids in range(tab_p[i_objet], pmax + 1):
+            oui_objet = tab_v[i_objet] \
+            + tab_optimise[i_objet - 1][i_objet- tab_p[i_objet]]
+            non_objet = tab_optimise[i_objet - 1][i_poids]
+            tab_optimise[i_objet][i_poids] = max(oui_objet, non_objet)
+    return tab_optimise[n - 1][pmax]
+
+tab_p = [5, 3, 1, 4]
+tab_v = [100, 55, 18, 70]
+pmax = 7
+
+print(sacados(tab_p, tab_v, pmax))
