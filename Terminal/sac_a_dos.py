@@ -1,6 +1,7 @@
 # programmation du problème du sac-à-dos
 # de manière "dynamique", c'est à dire en optimisant
 # avec un tableau
+import pprint
 
 def sacados(tab_p, tab_v, pmax):
     """ Résout le problème du sac à dos en renvoyant la valeur maximale des objets à prendre
@@ -16,8 +17,10 @@ def sacados(tab_p, tab_v, pmax):
     Renvoi :
     La valeur max du sac à dos
     
-    
-    
+    >>> sacados([5, 3, 1, 4], [100, 55, 18, 70], 7)
+    125
+    >>> sacados([8, 1, 10, 15], [7, 3, 28, 52], 16)
+    55
     """
     
     # nombre d'objets
@@ -43,10 +46,10 @@ def sacados(tab_p, tab_v, pmax):
             + tab_optimise[i_objet - 1][i_objet- tab_p[i_objet]]
             non_objet = tab_optimise[i_objet - 1][i_poids]
             tab_optimise[i_objet][i_poids] = max(oui_objet, non_objet)
+    # on renvoie la valeur en bas à droite
     return tab_optimise[n - 1][pmax]
 
-tab_p = [5, 3, 1, 4]
-tab_v = [100, 55, 18, 70]
-pmax = 7
 
-print(sacados(tab_p, tab_v, pmax))
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
