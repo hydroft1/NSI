@@ -24,5 +24,18 @@ def sacados(tab_p, tab_v, pmax):
                     for i in range(n)] 
     
     #1ere ligne
-    for poids in range(..., ...):
-        tab_optimise[0][poids] = ...
+    for poids in range(tab_p[0], pmax + 1):
+        tab_optimise[0][poids] = tab_v[0]
+    #1ere colonne
+    # les zéros y sont déjà 
+    # parcours de la matrice élément par élément
+    # ligne par ligne
+    for i in range(1, n):
+        for poids in range(pmax + 1):
+            if tab_p[i] > poids :
+                ...
+            else:
+                ...
+                
+                
+            
