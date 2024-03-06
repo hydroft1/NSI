@@ -18,7 +18,7 @@ def sacados(tab_p, tab_v, pmax):
     La valeur max du sac à dos
     
     >>> sacados([5, 3, 1, 4], [100, 55, 18, 70], 7)
-    125
+    225
     >>> sacados([8, 1, 10, 15], [7, 3, 28, 52], 16)
     55
     """
