@@ -1,55 +1,37 @@
-# programmation du problème du sac-à-dos
-# de manière "dynamique", c'est à dire en optimisant
-# avec un tableau
-import pprint
-
 def sacados(tab_p, tab_v, pmax):
-    """ Résout le problème du sac à dos en renvoyant la valeur maximale des objets à prendre
-    
-    Arguments : 
-    tab_p : tableau d'entiers des masses des objets
-    tab_v : tableau des valeurs des objets
-    pmax : masse maximale par le sac à dos
-    
-    Précondition :
-    tab_p et tab_v sont de même taille
-    
-    Renvoi :
-    La valeur max du sac à dos
-    
-    >>> sacados([5, 3, 1, 4], [100, 55, 18, 70], 7)
-    225
-    >>> sacados([8, 1, 10, 15], [7, 3, 28, 52], 16)
-    55
+    """ Renvoie la valeur maximale du sac à dos
+
+    params :
+     - tab_p : tableau des poids
+     - tab_v : tableau des valeurs
+     - pmax : poids total admissible
+     
+    >>> sacados([3, 8, 2, 4, 1], [50, 65, 10, 70, 10], 10)
+    140
     """
-    
+
     # nombre d'objets
     n = len(tab_p)
-    # initialisation
-    tab_optimise = [[0 for j in range(pmax + 1)]
-                    for i in range(n)] 
-    
-    #1ere ligne
-    for poids in range(tab_p[0], pmax + 1):
-        tab_optimise[0][poids] = tab_v[0]
-    #1ere colonne
-    # les zéros y sont déjà 
-    # parcours de la matrice élément par élément
-    # ligne par ligne
+    tab_optimise = [[0 for _ in range(pmax + 1)] for _ in range(n)]
+    # 1ère ligne
+    for i_poids in range(tab_p[0], pmax + 1):
+        tab_optimise[0][i_poids] = tab_v[0]
+    # autres lignes
     for i_objet in range(1, n):
-        # l'objet est trop lourd pour le sac à dos
-        # on le prend pas
+        # on ne prend pas l'objet
         for i_poids in range(1, tab_p[i_objet]):
             tab_optimise[i_objet][i_poids] = tab_optimise[i_objet - 1][i_poids]
         for i_poids in range(tab_p[i_objet], pmax + 1):
-            oui_objet = tab_v[i_objet] \
-            + tab_optimise[i_objet - 1][i_objet- tab_p[i_objet]]
-            non_objet = tab_optimise[i_objet - 1][i_poids]
-            tab_optimise[i_objet][i_poids] = max(oui_objet, non_objet)
-    # on renvoie la valeur en bas à droite
+            # on prend ou pas l'objet
+            tab_optimise[i_objet][i_poids] = max(
+                tab_optimise[i_objet - 1][i_poids],
+                tab_v[i_objet] + tab_optimise[i_objet - 1][i_poids - tab_p[i_objet]]
+            )
+
     return tab_optimise[n - 1][pmax]
 
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     import doctest
     doctest.testmod()
