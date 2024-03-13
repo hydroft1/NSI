@@ -25,9 +25,20 @@ def sacados(tab_p, tab_v, pmax):
             # on prend ou pas l'objet
             tab_optimise[i_objet][i_poids] = max(
                 tab_optimise[i_objet - 1][i_poids],
-                tab_v[i_objet] + tab_optimise[i_objet - 1][i_poids - tab_p[i_objet]]
-            )
-
+                tab_v[i_objet] + tab_optimise[i_objet - 1][i_poids - tab_p[i_objet]])
+    
+    x = [0] * n
+    colonne = pmax
+    for ligne in range(n - 1, 0, -1):
+        if tab_optimise[ligne][colonne] != tab_optimise[ligne - 1][colonne]:
+            # on a pris l'objet
+            x[ligne] = 1
+            colonne = colonne - tab_p[ligne]
+    if tab_optimise[0][colonne] != 0:
+        x[0] = 1    
+        
+            
+    # on renvoie la valeur en bas à droite
     return tab_optimise[n - 1][pmax]
 
 
