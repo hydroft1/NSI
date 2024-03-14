@@ -31,3 +31,4 @@ This repository includes the various codes produced during the NSI terminal clas
 | sql1.sql | `Easy` |
 | programmation_fonct.py | `Medium` |
 | sac_a_dos.py | `Medium` |
+| abre_pedigrée.py | `Easy` |
