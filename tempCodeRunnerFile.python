@@ -1,43 +1,24 @@
-from collections import deque
-
-
-class File:
-    def __init__(self):
-        self._mafile = deque()
-    
-    def enfiler(self, elt):
-        self._mafile.appendleft(elt)
-        
-    def defiler(self):
-        return self._mafile.pop()
-    
-    def est_vide(self):
-        return len(self._mafile) == 0
-    
 class Noeud():
     def __init__(self, cle, gauche=None, droite=None):
         self.cle = cle
         self.gauche = gauche
         self.droite = droite
-        
-    
-def nombre_chiens(arb, n):
-    maf = File()
-    maf.enfiler((arb, 0))
-    
-    resultat =  0
-    while not maf.est_vide():
-        nd, niveau = maf.defiler()
-        if niveau == n:
-            resultat += 1
-        if nd.gauche is not None:
-            maf.enfiler((nd.gauche, niveau + 1))
-        if nd.droite is not None:
-            maf.enfiler((nd.droite, niveau + 1))
-    
-    return resultat
-    
-    
+
+def trouver_chemins_feuilles(arbre, chemin=[], chemins=[]):
+    if arbre is None:
+        return
+
+    chemin.append(arbre.cle)
+
+    if arbre.gauche is None and arbre.droite is None:
+        chemins.append(list(chemin))
+
+    trouver_chemins_feuilles(arbre.gauche, chemin.copy(), chemins)
+    trouver_chemins_feuilles(arbre.droite, chemin.copy(), chemins)
+
+    return chemins
+
+# Exemple d'utilisation
 arbres_chiens = Noeud("Milka", 
                         Noeud("Eclair", None,
                                 Noeud("Etoile",
@@ -53,4 +34,6 @@ arbres_chiens = Noeud("Milka",
                                     Noeud("Noisette")))
 )
 
-print(nombre_chiens(arbres_chiens, 1))
+chemins = trouver_chemins_feuilles(arbres_chiens)
+for chemin in chemins:
+    print(" -> ".join(map(str, chemin)))
