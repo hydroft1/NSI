@@ -1,3 +1,5 @@
+[![CodeTime Badge](https://img.shields.io/endpoint?style=flat&color=9EC183&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D25319%26project%3DNSI%26in=0)](https://codetime.dev)
+
 <h1 align="center"> NSI 💻</h1>
 
 This repository includes the various codes produced during the NSI terminal class .
