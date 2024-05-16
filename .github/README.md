@@ -1,4 +1,4 @@
-[![CodeTime Badge](https://img.shields.io/endpoint?style=flat&color=37C940&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D25319%26project%3DNSI%26in=0)](https://codetime.dev)
+[![CodeTime Badge](https://img.shields.io/endpoint?style=flat&color=37C940&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D25319%26project%3DNSI%26in=0)](https://codetime.dev) since 2024-05-09
 
 <h1 align="center"> NSI 💻</h1>
 
