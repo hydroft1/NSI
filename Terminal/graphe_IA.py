@@ -60,7 +60,7 @@ def has_cycle(graph):
                         # Si le voisin a déjà été visité, c'est que nous avons trouvé un cycle
                         return True
     return False
-
+#
 graph = {
     'A': ['B', 'C'],
     'B': ['A', 'D', 'E'],
